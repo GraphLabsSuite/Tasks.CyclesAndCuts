@@ -403,14 +403,12 @@ class App extends Template {
         let res: number = 0;
         if (!this.check_tree()) {
             res += 50;
-        } else {
-            if (!this.check_cycles()) {
-                res += 15;
-            }
-            if (!this.check_cuts()) {
-                res += 15;
-            }
-
+        }
+        if (!this.check_cycles()) {
+            res += 15;
+        }
+        if (!this.check_cuts()) {
+            res += 15;
         }
         return {success: res === 0, fee: res}
     }
